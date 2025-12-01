@@ -31,7 +31,9 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
+ app.get("/" , (req,res)=>{
+  res.send("Hello  World")
+ })
 app.use("/api/auth", authRoute);
 app.use("/api/admin/product", adminRoute);
 app.use("/api/shop/product", shopProductRoute);
