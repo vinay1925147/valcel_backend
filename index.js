@@ -26,7 +26,7 @@ mongoose
 
 app.use(
   cors({
-    origin: "vercel-frontend-coral-delta.vercel.app",
+    origin: "https://vercel-frontend-coral-delta.vercel.app/",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -35,9 +35,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/" , (req,res)=>{
-  res.send("Hello World")
-})
+
 
 app.use("/api/auth", authRoute);
 app.use("/api/admin/product", adminRoute);
@@ -53,3 +51,4 @@ app.use("/api/shop/review",shopReviewRoute);
 // app.listen(PORT, () =>{
 //   console.log(`server is started at http://localhost:${PORT}`);
 // });
+export default app;
