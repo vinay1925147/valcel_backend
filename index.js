@@ -51,8 +51,8 @@ app.use("/api/shop/search",shopSearchRoute);
 app.use("/api/shop/review",shopReviewRoute);
 
 
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () =>{
-  console.log(`server is started at http://localhost:${PORT}`);
-});
-// export default app;
+// const PORT = process.env.PORT || 8000;
+// app.listen(PORT, () =>{
+//   console.log(`server is started at http://localhost:${PORT}`);
+// });
+export default app;
