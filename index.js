@@ -23,19 +23,23 @@ mongoose
   .catch((err) => {
     console.error("mongo error:", err);
   });
+  app.use(
+    cors({
+      origin: "https://vercel-frontend-coral-delta.vercel.app",
+        //  origin: "http://localhost:5173",
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      credentials: true,
+    })
+  );
 
-app.use(
-  cors({
-    origin: "https://vercel-frontend-coral-delta.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
+app.get('/' , (req,res)=>{
+  console.log("Hello")
+  res.send("Hello")
+})
 
 app.use("/api/auth", authRoute);
 app.use("/api/admin/product", adminRoute);
@@ -47,8 +51,8 @@ app.use("/api/shop/search",shopSearchRoute);
 app.use("/api/shop/review",shopReviewRoute);
 
 
-// const PORT = process.env.PORT || 8000;
-// app.listen(PORT, () =>{
-//   console.log(`server is started at http://localhost:${PORT}`);
-// });
-export default app;
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () =>{
+  console.log(`server is started at http://localhost:${PORT}`);
+});
+// export default app;
